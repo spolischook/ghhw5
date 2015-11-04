@@ -1,0 +1,16 @@
+{
+    "name": "root/ghhw5.dev",
+    "description": "ghhw5",
+    "require": {
+        "php": "^5.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.0"
+    },
+    "authors": [
+        {
+            "name": "0TshELn1ck",
+            "email": "0TshEL_n1ck@i.ua"
+        }
+    ]
+}
