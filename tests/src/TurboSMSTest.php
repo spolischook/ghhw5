@@ -12,9 +12,11 @@ class TurboSMSTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
-    public function testFileTurboSMSExist()
+    public function testFilesExist()
     {
         $this->assertFileExists('src/TurboSMS.php');
+        $this->assertFileExists('web/index.php');
+        $this->assertFileExists('App/Database.php');
     }
 
     /**
@@ -25,6 +27,18 @@ class TurboSMSTest extends \PHPUnit_Framework_TestCase
         $obj = new TurboSMS();
         $array = $obj->getStatusSMS();
         $this->assertCount(15, $array);
+    }
+
+    /**
+     *
+     */
+    public function testSendSMS()
+    {
+        $mock = $this->getMock('Src\TurboSMS');
+        $mock->expects($this->once())
+            ->method('sendSMS')
+            ->will($this->returnValue('done'));
+        $this->assertEquals($mock->sendSMS('380501234567', 'Test message'), 'done');
     }
 
 }
