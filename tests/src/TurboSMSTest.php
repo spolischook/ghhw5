@@ -1,8 +1,6 @@
 <?php
 namespace Tests;
 
-use Src\TurboSMS;
-
 /**
  * Class TurboSMSTest
  * @package Tests
