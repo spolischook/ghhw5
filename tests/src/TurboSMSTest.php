@@ -24,9 +24,17 @@ class TurboSMSTest extends \PHPUnit_Framework_TestCase
      */
     public function testStatusSMSReturnAllData()
     {
-        $obj = new TurboSMS();
-        $array = $obj->getStatusSMS();
-        $this->assertCount(15, $array);
+        if (file_exists('config\config.php')) {
+            $obj = new TurboSMS();
+            $array = $obj->getStatusSMS();
+            $this->assertCount(15, $array);
+        } else {
+            $mock = $this->getMock('Src\TurboSMS');
+            $mock->expects($this->once())
+                ->method('getStatusSMS')
+                ->will($this->returnValue(15));
+            $this->assertEquals($mock->getStatusSMS(), 15);
+        }
     }
 
     /**
